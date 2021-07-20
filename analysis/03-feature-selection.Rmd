@@ -455,7 +455,7 @@ patchwork::wrap_plots(plt, ncol = 2)
 Select highly variable genes and store in row metadata:
 
 ```{r}
-dec <- metadata(sce)$modelGeneVarWithSpikes
+dec <- metadata(sce)$modelGeneVar
 
 dec <- subset(dec, hvg == TRUE)
 
