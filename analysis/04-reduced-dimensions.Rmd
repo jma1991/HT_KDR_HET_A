@@ -156,7 +156,7 @@ ggplot(dat, aes(n.pcs, n.clusters)) +
 Choose number of PCs to retain from the above analyses:
 
 ```{r}
-num <- 6
+num <- 5
 
 len <- seq_len(num)
 
@@ -212,7 +212,7 @@ plt <- apply(arg, 1, function(x) {
   txt <- paste(x[1], x[2], sep = "/")
 
   plotTSNE(run, colour_by = "cluster") + ggtitle(txt) + 
-    theme(axis.title = element_blank(), legend.position = "none")
+    theme(aspect.ratio = 1, axis.title = element_blank(), legend.position = "none")
 
 })
 
@@ -226,7 +226,7 @@ Select optimal perplexity value and number of iterations:
 ```{r}
 set.seed(1101110100)
 
-sce <- runTSNE(sce, dimred = "PCA", perplexity = 26, max_iter = 500)
+sce <- runTSNE(sce, dimred = "PCA", perplexity = 16, max_iter = 1500)
 ```
 
 ## UMAP
@@ -258,7 +258,7 @@ plt <- apply(arg, 1, function(x) {
   txt <- paste(x[1], x[2], sep = "/")
 
   plotUMAP(run, colour_by = "cluster") + ggtitle(txt) + 
-    theme(axis.title = element_blank(), legend.position = "none")
+    theme(aspect.ratio = 1, axis.title = element_blank(), legend.position = "none")
 
 })
 
@@ -272,7 +272,7 @@ Select optimal number of nearest neighbors:
 ```{r}
 set.seed(0010011101)
 
-sce <- runUMAP(sce, dimred = "PCA", n_neighbors = 17, min_dist = 0)
+sce <- runUMAP(sce, dimred = "PCA", n_neighbors = 15, min_dist = 0.6)
 ```
 
 ## Variables {.tabset}
